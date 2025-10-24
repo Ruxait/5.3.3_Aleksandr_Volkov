@@ -1,8 +1,11 @@
-import { Group, Text, Container, Anchor } from '@mantine/core'
+import { Group, Text, Container } from '@mantine/core'
 import hhIcon from '../assets/hh.svg'
-import userIcon from '../assets/user-circle.svg'
+import { CustomLink } from '../components/CustomLink'
+import { useMatch } from 'react-router-dom'
+import UserIcon from '../assets/user-circle.svg?react'
 
 export const Header = () => {
+  const match = useMatch('about')
   return (
     <header
       style={{
@@ -31,13 +34,13 @@ export const Header = () => {
             left: '50%',
             transform: 'translateX(-50%)',
           }}>
-          <Anchor c="dark" fw={500} underline="never" style={{ cursor: 'pointer' }}>
-            Вакансии FE
-          </Anchor>
-          <Anchor c="gray" fw={500} underline="never" style={{ cursor: 'pointer', display: 'flex' }}>
-            <img src={userIcon} alt="logo" width={24} height={24} />
-            Обо мне
-          </Anchor>
+          <CustomLink to="/">Вакансии FE</CustomLink>
+          <CustomLink to="about">
+            <div style={{ display: 'flex', gap: '5px' }}>
+              <UserIcon width={24} height={24} color={match ? 'black' : 'gray'} />
+              Обо мне
+            </div>
+          </CustomLink>
         </Group>
       </Container>
     </header>

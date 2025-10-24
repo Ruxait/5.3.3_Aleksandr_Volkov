@@ -4,6 +4,7 @@ import { VacanciesPage } from './pages/VacanciesPage'
 import { VacancyInfoPage } from './pages/VacancyInfoPage'
 import Layout from './pages/Layout'
 import { ErrorPage } from './pages/ErrorPage'
+import { AboutPage } from './pages/AboutPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,10 +15,11 @@ const router = createBrowserRouter(
         <Route path="petersburg" element={<VacanciesPage />} />
       </Route>
       <Route path="vacancy/:id" element={<VacancyInfoPage />} />
+      <Route path="about" element={<AboutPage />} />
     </Route>,
   ),
   {
-    basename: '/5.2.9_Aleksandr_Volkov',
+    basename: '/5.3.3_Aleksandr_Volkov',
   },
 )
 
