@@ -1,8 +1,10 @@
 import { Button, Container, Group, Image, Stack, Text, Title, Paper } from '@mantine/core'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import catIcon from '../assets/sad-cat 1.png'
 
 export function ErrorPage() {
+  const navigate = useNavigate()
+  const goHome = () => navigate('/', {replace: true})
   return (
     <Container size="sm" py="xl">
       <Paper shadow="sm" radius="lg" p="xl" withBorder>
@@ -14,7 +16,7 @@ export function ErrorPage() {
                 Давайте перейдём к началу.
               </Text>
             </div>
-            <Button component={Link} to="/" variant="filled" color="blue" radius="md">
+            <Button onClick={goHome} variant="filled" color="blue" radius="md">
               На главную
             </Button>
           </Group>
